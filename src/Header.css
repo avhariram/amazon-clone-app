@@ -1,0 +1,18 @@
+.header{
+    /* fixed size for the height, style each component by its class */
+    height: 60px; 
+    display: flex;
+    align-items: center;
+    background-color: #131921;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header__logo{
+    width: 100px;
+    /* object-fit: contain to keep the aspect ration; and set the margins around the object */
+    object-fit: contain;
+    margin: 0 20px;
+    margin-top: 18px;
+}
