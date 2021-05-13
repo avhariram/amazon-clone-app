@@ -11,6 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* below has been added new */
+  background-color: rgb(230, 233, 233);
 }
 /* auto generated below*/
 code {

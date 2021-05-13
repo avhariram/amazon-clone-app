@@ -1,0 +1,31 @@
+.home{
+    display: flex;
+    /* justification of all the children content */
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    /* protect against massively stretched out screens for the content */
+    max-width: 1500px;
+}
+
+.home__image{
+    /* set to frame width */
+    width: 100%;
+    z-index: -1;
+    margin-bottom: -150px;
+    /* mask and have the image on a gradient, nice look and feel */
+    /* goes from a solif color to a transparent colour from top to bottom */
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+/* check the flexbox on this element in the browser; 
+allows the components in the row to be displayed in a flexbox 
+Adding a flex box means items added to the  row will be nicely
+spaced and sized
+The box in line with the internal items it holds for sizing*/
+.home__row{
+    display: flex;
+    z-index: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+}

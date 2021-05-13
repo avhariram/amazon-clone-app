@@ -3,6 +3,7 @@ import React from "react";
 // project will use material-ui for react components and icons
 import './App.css';
 import Header from './Header'
+import Home from './Home'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       {/* mount the components here, in App; starts with home */}
       <Header />
       {/* Home */}
+      <Home />
     </div>
   );
 }
