@@ -11,8 +11,61 @@
 
 .header__logo{
     width: 100px;
-    /* object-fit: contain to keep the aspect ration; and set the margins around the object */
+    /* object-fit: contain to keep the aspect ratio; and set the margins around the object, check orientations for margin in-line*/
     object-fit: contain;
     margin: 0 20px;
     margin-top: 18px;
+}
+
+.header__search{ /*acts as the container*/
+    display: flex; /*put it all in a flex box to align items within the box*/
+    flex: 1; /*can be 0 or one, check here https://css-tricks.com/snippets/css/a-guide-to-flexbox/*/
+    align-items: center;
+    border-radius: 24px; /*play around; doesn't really doing anything*/
+}
+
+.header__searchIcon{
+    padding: 5px; /*can play around with this*/
+    height: 22px !important; /*important overrrides all other settings that might break it*/
+    background-color: #cd9042;
+}
+
+.header__searchInput{
+    height: 12px;
+    padding: 10px;
+    border: none;
+    width: 100%; /*take up the whole width*/
+}
+
+.header__nav{ /*this contains the header options which we'll display in its own flex box*/
+    display: flex;
+    /* flex-direction: row; not needed, defaults to row */ 
+    justify-content: space-evenly;/* space them evenly int the space*/ 
+}
+
+.header__optionLineOne{
+    font-size: 10px;
+}
+.header__optionLineTwo{
+    font-size: 13px;
+    font-weight: 800; /*we're getting bold */
+}
+
+.header__option{
+    display: flex; /*have it all in a flex container*/
+    flex-direction: column;  /*align all items in the container vertically*/
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+.header__optionBasket{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.header__basketCount{
+    margin-right: 10px;
+    margin-left: 10px;
 }
