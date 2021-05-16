@@ -1,18 +1,29 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import './Header.css';
 import SearchIcon from '@material-ui/icons/Search'; //code snippets from material-ui website
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
+import { Link } from 'react-router-dom';
+import { useStateValue } from './StateProvider';
 
 // building the header component
 function Header() {
+
+ //grab the basket details from the global store and update the itesm in the basket store; destructured from the state, no use for dispatch here
+ const[{basket}, dispatch] = useStateValue();
+    
     return (
         <div className="header">
+            {/* use Link component to allow children to Route as required to the "to" property */}
+            <Link to="/">
+                <img 
+                className ="header__logo"
+                src ="https://www.globalcosmeticsnews.com/wp-content/uploads/2019/01/amazon-625x352.jpg" 
+                alt="Company logo"
+                />
+            </Link>
             {/* basically the company logo, to be styled later */}
-            <img 
-            className ="header__logo"
-            src ="https://www.globalcosmeticsnews.com/wp-content/uploads/2019/01/amazon-625x352.jpg" 
-            alt="Company logo"
-            />
+            
             <div className="header__search">
                 {/* the search bar; which is an input */}
                 <input 
@@ -54,14 +65,17 @@ function Header() {
                         Prime
                     </span>
                 </div>
-                <div className="header__optionBasket">
-                    <ShoppingBasketIcon />
-                    {/* assign 2 classnames to the basketIcon; will be styled and positioned as per option__lineTwo and the other classname */}
-                    <span className="header__basketCount header__optionLineTwo">
-                        0 
-                    </span>
+                <Link to="/checkout">
+                    <div className="header__optionBasket">
+                        <ShoppingBasketIcon />
+                        {/* assign 2 classnames to the basketIcon; will be styled and positioned as per option__lineTwo and the other classname */}
+                        <span className="header__basketCount header__optionLineTwo">
+                            {basket?.length} 
+                            {/* optional chaining->  ?.; when basket ref is undefined or null; still allows access. If there is a basket, then access its length basically*/}
+                        </span>
 
-                </div>
+                    </div>
+                </Link>
 
             </div>
         </div>
