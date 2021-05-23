@@ -5,13 +5,20 @@ import SearchIcon from '@material-ui/icons/Search'; //code snippets from materia
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
 import { Link } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
+import { auth } from './firebase';
 
 // building the header component
 function Header() {
 
  //grab the basket details from the global store and update the itesm in the basket store; destructured from the state, no use for dispatch here
- const[{basket}, dispatch] = useStateValue();
-    
+ const[{basket, user}, dispatch] = useStateValue();
+ 
+ const handleAuthentication = () =>{ //could be called anything, sign-out maybe more straightforward
+     if(user){
+         auth.signOut(); //sign out using firebase
+     }
+ }
+
     return (
         <div className="header">
             {/* use Link component to allow children to Route as required to the "to" property */}
@@ -35,18 +42,21 @@ function Header() {
             </div>
             {/* the navigation menu */}
             <div className="header__nav">
+                <Link to={!user && '/login'}>
+                    {/* if there is no user then route to login page. The on-click logout will only work if there is a user */}
                 {/* have each component in their own div, allows styling, these are the header nav elements */}
-                <div className="header__option">
+                <div onClick={handleAuthentication} className="header__option">
                     {/* div elements are block elements,and styled as such, span elements are the equivalent of in-line div elements, they are't block elements */}
                     {/* wrap the button icons in span elements for the nav menu to have them appear in-line */}
                     {/* and put each bit of text on a new line, each option */}
                     <span className="header__optionLineOne">
-                        Hello Guest
+                       {user ? `Hello ${user.email}` : "Hello Guest"}
                     </span>
                     <span className="header__optionLineTwo">
-                        Sign In
+                        {user ? 'Sign Out': 'Sign In'}
                     </span>
                 </div>
+                </Link>
 
                 <div className="header__option">
                     <span className="header__optionLineOne">
