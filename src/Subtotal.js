@@ -1,19 +1,22 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React from 'react'
 import './Subtotal.css'
 //can use a library: react-currency-format for the currency information, use npm install at that step to get the libraries we need
 import CurrencyFormat from "react-currency-format"
 import { useStateValue } from './StateProvider'
+import { getBasketTotal } from './Reducer'
 
 function Subtotal() {
     //grab the basket items again like in the header:
-    const [{basket}, dispatch]=useStateValue();
+    const [{basket}, dispatch]=useStateValue(); //useStateValue-> custom hook
 
     //use a reduce method to take an array of basket objects, and reduce it to a single value with an initial value of 0
     //total cost for the accumulator; then each object is the item, and we accumulate on the item.price by summing the values
-    const checkoutTotal = basket.reduce( (totalCost, item) => (
-        totalCost + item.price
-    ),0);
+    //could have done it the way below without a selector; selector is the best method
+    // const checkoutTotal = basket.reduce( (totalCost, item) => (
+    //     totalCost + item.price
+    // ),0);
 
     return (
         <div className="subtotal">
@@ -35,8 +38,8 @@ function Subtotal() {
                 </>
             )}
             decimalScale={2}
-            value={checkoutTotal}
-            //value={getBasketTotal(basket)} //this is value passed into renderText
+            // value={checkoutTotal}
+            value={ getBasketTotal(basket) } //this is value passed into renderText
             displayType={"text"}
             thousandSeparator={true}
             prefix={"$"}

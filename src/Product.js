@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import './Product.css'
 import { useStateValue } from './StateProvider'
+
 
 // think about the product layout=>header/description, price, rating, picture, and add to basket button
 // each product component, by being built this way, can be displayed as needed and modified for multiple re-use

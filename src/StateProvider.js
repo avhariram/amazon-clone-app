@@ -13,6 +13,7 @@ export const StateContext = createContext();
 //Wrap our appplication and provide the data layer to all the components in the app
 //Note children is a special prop -> props.children destructured; is all the children rendered by StateProvider
 //All the children of the provider will haev access to the state context
+//Custom hook here
 export const StateProvider = ({ reducer, initialState, children }) => (
     <StateContext.Provider value={useReducer(reducer, initialState)}>
       {children}
