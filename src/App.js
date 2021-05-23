@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect }  from "react";
 // ./->look inthe same source folder; import the Header component to be rendered in the app component which is mounted on root

@@ -5,6 +5,9 @@
 //setup sign-in methods here: https://console.firebase.google.com/u/0/project/clone-app-cdfbb/authentication/providers
 //then in terminal run npm install firebase; this also with the global tools: sudo npm install -g firebase-tools
 
+
+//once app is built and ready to deploy -> first run firebase init to initialise the project; first go to hosting,use existing project, select the project name, for public directory use 'build', and then click y for an spa, then once initialised, hit npm run build to create prod version, then run 'firebase deploy' 
+
 import firebase from 'firebase'
 
 const firebaseConfig = {
