@@ -21,7 +21,7 @@ const firebaseConfig = {
   };
 
 //initialise the app with the config we've copied
-  const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 //initialise the DB, on the app we initialise the store, firestore is the realtime firebase db
 const db = firebaseApp.firestore();

@@ -4,6 +4,7 @@ import './Checkout.css'
 import CheckoutProduct from './CheckoutProduct';
 import { useStateValue } from './StateProvider'
 import Subtotal from './Subtotal'
+import FlipMove from 'react-flip-move';
 //as always, best to mockout what is required first then start building the structure
 function Checkout() {
 
@@ -24,7 +25,7 @@ function Checkout() {
                         Your shopping basket
                         {/* Basket items */}
                     </h2>
-                    
+                    {/* <FlipMove> */}
                     {basket.map(item => (
                         <CheckoutProduct
                         id={item.id}
@@ -34,7 +35,7 @@ function Checkout() {
                         rating={item.rating}
                         />
                     ))}
-                    
+                    {/* </FlipMove> */}
                 </div>
             </div>
 
